@@ -6,7 +6,9 @@ public class EmpWageBuilder {
     public static final int IS_FULLTIME=8;
     public static final int IS_PART_TIME=4;
     public static final int WAGE_PER_HOUR=20;
+    public static final int NUMBER_OF_WORKING_DAYS=20;
     public static int DAILY_WAGE=0;
+    public static int MONTHLY_WAGE=0;
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation program");
         Random random=new Random();
@@ -28,7 +30,10 @@ public class EmpWageBuilder {
                 break;
             }
         }
+        MONTHLY_WAGE=DAILY_WAGE*NUMBER_OF_WORKING_DAYS;
         System.out.println("Daily wage : " +DAILY_WAGE);
+        System.out.println("Monthly wage : " +MONTHLY_WAGE);
+
     }
 
 }
