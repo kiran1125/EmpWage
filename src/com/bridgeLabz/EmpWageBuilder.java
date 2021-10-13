@@ -11,17 +11,22 @@ public class EmpWageBuilder {
         System.out.println("Welcome to Employee Wage Computation program");
         Random random=new Random();
         int Emp_check = random.nextInt(3);
-        if (Emp_check == IS_PRESENT){
-            System.out.println("Employee is present");
-            DAILY_WAGE=IS_FULLTIME*WAGE_PER_HOUR;
+        switch (Emp_check) {
+            case IS_PRESENT: {
+                System.out.println("Employee is present");
+                DAILY_WAGE = IS_FULLTIME * WAGE_PER_HOUR;
+                break;
 
-        }
-        else if(Emp_check == IS_ABSENT) {
-            System.out.println("Employee is Absent");
-        }
-        else {
-            System.out.println("Employee is part time ");
-            DAILY_WAGE=IS_PART_TIME*WAGE_PER_HOUR;
+            }
+            case IS_ABSENT: {
+                System.out.println("Employee is Absent");
+                break;
+            }
+            default: {
+                System.out.println("Employee is part time ");
+                DAILY_WAGE = IS_PART_TIME * WAGE_PER_HOUR;
+                break;
+            }
         }
         System.out.println("Daily wage : " +DAILY_WAGE);
     }
