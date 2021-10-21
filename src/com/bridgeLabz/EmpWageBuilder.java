@@ -2,17 +2,15 @@ package com.bridgeLabz;
 import java.util.Random;
 public class EmpWageBuilder {
     public static void main(String[] args) {
-        Attendance attendance = new Attendance();
-        attendance.EmployeeCheck();
+        Attendance attendance1 = new Attendance();
+        Attendance attendance2 = new Attendance();
+        attendance1.EmployeeCheck("Reliance",30,8,4,30);
+        attendance2.EmployeeCheck("Lg",20,7,4,25);
     }
 }
 class Attendance{
     static final int IS_PRESENT = 1;
     static final int IS_ABSENT = 0;
-    static final int WAGE_PER_HOUR = 20;
-    static final int IS_FULL_TIME = 8;
-    static final int IS_PART_TIME = 4;
-    static final int NO_OF_WORKING_DAYS=20;
     int dailyWage = 0;
     int monthlyWage = 0;
     int totalHours =0;
@@ -23,14 +21,14 @@ class Attendance{
         int empCheck = r.nextInt(a);
         return empCheck;
     }
-    void EmployeeCheck() {
-        for (int i=0;i<=NO_OF_WORKING_DAYS && totalHours<=100;i++){
+    void EmployeeCheck(String name,int wagePerHour,int isFullTime,int isPartTime,int numOfWorkingDays) {
+        for (int i = 0; i<= numOfWorkingDays && totalHours<=100; i++){
             int empCheck = GetEmployeePresent(3);
             switch (empCheck) {
                 case IS_PRESENT: {
                     //System.out.println("Employee is present");
-                    dailyWage = WAGE_PER_HOUR * IS_FULL_TIME;
-                    hours += IS_FULL_TIME;
+                    dailyWage = wagePerHour * isFullTime;
+                    hours += isFullTime;
                     break;
 
                 }
@@ -41,13 +39,13 @@ class Attendance{
                 }
                 default: {
                     //System.out.println("Employee is Part time");
-                    dailyWage = WAGE_PER_HOUR * IS_PART_TIME;
-                    hours += IS_PART_TIME;
+                    dailyWage = wagePerHour * isPartTime;
+                    hours += isPartTime;
                     break;
                 }
             }
         }
-        monthlyWage = NO_OF_WORKING_DAYS * dailyWage;
+        monthlyWage = numOfWorkingDays * dailyWage;
         totalHours = hours;
         System.out.println("Monthly salary : " +monthlyWage + " Total Hours : " +hours);
     }
