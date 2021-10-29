@@ -3,7 +3,7 @@ package com.bridgeLabz;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class EmpWageBuilderArray {
+public class EmpWageBuilderArray implements IEmpWage {
     ArrayList<ComputationOfEmpWage> companyDetailsList = new ArrayList<>();
 
     public void addCompanyDetails(String company, int numOfWorkingDays, int isFullTime, int isPartTime, int wagePerHour) {
