@@ -1,18 +1,16 @@
 package com.bridgeLabz;
-
-import java.util.Random;
-
 public class ComputationOfEmpWage {
-        //variables
+        //Class level variables
 
         String companyName;
         int numOfWorkingDays,isFullTime,isPartTime,wagePerHour,totalEmpWage;
-        //computation
+        //parameterised constructor to initialize
         public ComputationOfEmpWage(String companyName, int numOfWorkingDays, int isFullTime, int isPartTime, int wagePerHour){
             this.companyName = companyName;
             this.numOfWorkingDays = numOfWorkingDays;
             this.isFullTime = isFullTime;
             this.isPartTime = isPartTime;
             this.wagePerHour = wagePerHour;
+            totalEmpWage=0;
         }
 }
