@@ -3,6 +3,10 @@ package com.bridgeLabz;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * using arraylist to store the company details
+ * using hashmap to store the company name as key and company details as values
+ */
 public class EmpWageBuilderArray implements IEmpWage {
     ArrayList<ComputationOfEmpWage> companyDetailsList = new ArrayList<>();
 
@@ -10,6 +14,10 @@ public class EmpWageBuilderArray implements IEmpWage {
         ComputationOfEmpWage computationOfEmpWage = new ComputationOfEmpWage(company, numOfWorkingDays, isFullTime, isPartTime, wagePerHour);
         companyDetailsList.add(computationOfEmpWage);
     }
+
+    /**
+     * this method is to calculate Employee wage for multiple companies
+     */
     public void computeEmpWage(){
 
         for (int i=0;i<companyDetailsList.size();i++){
@@ -19,6 +27,11 @@ public class EmpWageBuilderArray implements IEmpWage {
         }
     }
 
+    /**
+     * To calculate the employee wage
+     * @param computationOfEmpWage
+     * @return
+     */
     public int empMonthlyWage(ComputationOfEmpWage computationOfEmpWage) {
         final int IS_PRESENT = 1;
         final int IS_ABSENT = 0;

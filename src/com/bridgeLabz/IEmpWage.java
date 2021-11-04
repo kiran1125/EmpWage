@@ -1,3 +1,7 @@
+/**
+ * Interface class created to get 100 percent abstraction
+ */
+
 package com.bridgeLabz;
 
 public interface IEmpWage {

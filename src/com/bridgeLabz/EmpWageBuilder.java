@@ -1,3 +1,11 @@
+/**
+ * Calculation of Employee Wage for different companies
+ * Calculation of employee wage using company name
+ *
+ * @author - kiran
+ *
+ */
+
 package com.bridgeLabz;
 public class EmpWageBuilder {
     public static void main(String[] args) {
