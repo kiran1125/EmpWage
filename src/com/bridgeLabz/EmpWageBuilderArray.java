@@ -1,6 +1,8 @@
 package com.bridgeLabz;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -9,10 +11,12 @@ import java.util.Random;
  */
 public class EmpWageBuilderArray implements IEmpWage {
     ArrayList<ComputationOfEmpWage> companyDetailsList = new ArrayList<>();
+    Map<String,ComputationOfEmpWage> map = new HashMap<>();
 
     public void addCompanyDetails(String company, int numOfWorkingDays, int isFullTime, int isPartTime, int wagePerHour) {
         ComputationOfEmpWage computationOfEmpWage = new ComputationOfEmpWage(company, numOfWorkingDays, isFullTime, isPartTime, wagePerHour);
         companyDetailsList.add(computationOfEmpWage);
+        map.put(company,computationOfEmpWage);
     }
 
     /**
@@ -22,8 +26,7 @@ public class EmpWageBuilderArray implements IEmpWage {
 
         for (int i=0;i<companyDetailsList.size();i++){
             ComputationOfEmpWage computationOfEmpWage = companyDetailsList.get(i);
-            int wage = this.empMonthlyWage(computationOfEmpWage);
-            System.out.println(companyDetailsList.get(i).companyName + " monthly wage of the Employee : " + wage);
+            computationOfEmpWage.totalEmpWage = this.empMonthlyWage(computationOfEmpWage);
         }
     }
 
@@ -59,8 +62,12 @@ public class EmpWageBuilderArray implements IEmpWage {
             dailyWage = hours*computationOfEmpWage.wagePerHour;
             totalHours += hours;
         }
-           return monthlyWage = computationOfEmpWage.numOfWorkingDays * totalHours;
-        //System.out.println("company name : " + computationOfEmpWage.companyName + " Monthly salary : " +monthlyWage + " Total Hours : " +totalHours);
+        return monthlyWage = computationOfEmpWage.wagePerHour*totalHours;
+    }
+
+    @Override
+    public int getTotalEmpWage(String company) {
+        return map.get(company).totalEmpWage;
     }
 
 }
